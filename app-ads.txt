@@ -1,0 +1,16 @@
+# app-ads.txt for KRID A GAMES (Mirror Twins). Lines starting with # are comments.
+# Must be served at the ROOT of your developer website: https://krid-a.com/app-ads.txt,
+# and that website must be set as "Website" in your Google Play store listing.
+#
+# 1) Replace YOUR_PUBLISHER_ID with your ironSource/LevelPlay publisher ID:
+#    LevelPlay platform -> avatar (bottom left) -> Account -> API tab -> Publisher ID.
+# 2) Paste the current "ironSource authorized resellers" block under the marked line. Copy it from:
+#    https://docs.unity.com/en-us/grow/programmatic/ironsource-exchange/app-ads-txt
+#    (it changes from time to time, so copy the latest version).
+# 3) Also add the Unity Ads lines for your Unity Ads game ID (from the Unity Ads / LevelPlay docs),
+#    because the Unity Ads network is installed.
+
+OWNERDOMAIN=krid-a.com
+ironsrc.com, YOUR_PUBLISHER_ID, DIRECT
+
+# ---- paste the ironSource authorized resellers block below this line ----

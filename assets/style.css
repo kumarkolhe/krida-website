@@ -1,0 +1,128 @@
+/* KRID A GAMES — minimal, plain colours, no glow (same look as Mirror Twins) */
+:root {
+  --ink: #1b1b1b;
+  --muted: #6b6b6b;
+  --line: #e6e6e6;
+  --paper: #ffffff;
+  --soft: #f6f5f7;
+  --left: #6e236e;   /* Mirror Twins: left side */
+  --right: #24426e;  /* Mirror Twins: right side */
+  --mirror: #ffffff;
+  --gutter: 16px;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Montserrat", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+a { color: var(--ink); }
+img { max-width: 100%; display: block; }
+
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 var(--gutter); }
+
+/* ── Top bar ─────────────────────────────────────────── */
+.nav {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 2;
+  display: flex; justify-content: space-between; align-items: center;
+  max-width: 960px; margin: 0 auto; padding: 18px var(--gutter);
+}
+.nav a { color: #fff; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 2px; white-space: nowrap; }
+.nav .links { display: flex; gap: 20px; }
+
+/* ── Hero: the two halves, the mirror, the twins ─────── */
+.hero {
+  position: relative;
+  min-height: 560px;
+  height: 78vh;
+  max-height: 760px;
+  background: linear-gradient(90deg, var(--left) 0 50%, var(--right) 50% 100%);
+  color: #fff;
+  overflow: hidden;
+}
+.mirror {
+  position: absolute; left: 50%; width: 4px; margin-left: -2px;
+  background: var(--mirror); opacity: 0.9;
+}
+.mirror.top { top: 0; height: calc(28% - 40px); }
+.mirror.mid { top: calc(52% + 30px); bottom: 0; }
+.hero-text {
+  position: absolute; left: 0; right: 0; top: 28%;
+  text-align: center; padding: 0 var(--gutter);
+}
+.wordmark {
+  margin: 0; font-size: clamp(22px, 8vw, 72px); font-weight: 700;
+  letter-spacing: 0.18em; line-height: 1.1; white-space: nowrap;
+}
+.tagline { margin: 14px 0 0; font-size: clamp(14px, 2.4vw, 18px); letter-spacing: 0.08em; opacity: 0.85; }
+.twin {
+  position: absolute; bottom: 16%; width: 64px; height: 64px; border-radius: 50%; background: #fff;
+  animation: sway 3.2s ease-in-out infinite;
+}
+.twin.l { right: calc(50% + 70px); }
+.twin.r { left: calc(50% + 70px); animation-name: sway-mirror; }
+@keyframes sway { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-46px); } }
+@keyframes sway-mirror { 0%,100% { transform: translateX(0); } 50% { transform: translateX(46px); } }
+@media (prefers-reduced-motion: reduce) { .twin { animation: none; } }
+
+/* ── Sections ────────────────────────────────────────── */
+section { padding: 72px 0; }
+.eyebrow { margin: 0 0 8px; font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; }
+h2 { margin: 0 0 24px; font-size: 28px; letter-spacing: 0.04em; line-height: 1.2; }
+
+.game {
+  display: grid; grid-template-columns: 160px 1fr; gap: 32px; align-items: center;
+  padding: 32px; border: 1px solid var(--line); background: var(--paper);
+}
+.game img { width: 160px; height: 160px; border-radius: 36px; }
+.game h3 { margin: 0 0 6px; font-size: 24px; letter-spacing: 0.04em; }
+.game p { margin: 0 0 16px; color: var(--muted); }
+.features { list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+.features li { padding: 4px 12px; border: 1px solid var(--line); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.button {
+  display: inline-block; padding: 12px 20px; background: var(--ink); color: #fff;
+  text-decoration: none; font-weight: 700; letter-spacing: 0.08em; font-size: 14px;
+}
+.text-link { font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: var(--muted); }
+
+.about { background: var(--soft); }
+.about p { max-width: 640px; margin: 0; font-size: 18px; }
+
+footer { border-top: 1px solid var(--line); padding: 28px 0; font-size: 13px; color: var(--muted); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+footer a { color: var(--muted); }
+
+/* ── Policy pages ────────────────────────────────────── */
+.page-head {
+  background: linear-gradient(90deg, var(--left) 0 50%, var(--right) 50% 100%);
+  color: #fff; padding: 96px 0 40px;
+}
+.page-head h1 { margin: 0; font-size: clamp(28px, 6vw, 40px); letter-spacing: 0.04em; line-height: 1.15; }
+.page-head p { margin: 8px 0 0; opacity: 0.85; font-size: 14px; }
+.policy { max-width: 720px; }
+.policy h2 { font-size: 18px; margin: 36px 0 8px; padding-top: 20px; border-top: 1px solid var(--line); }
+.policy ul { padding-left: 20px; }
+.policy p, .policy li { color: #2b2b2b; }
+
+/* ── Phone ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .nav { padding: 16px var(--gutter); }
+  .nav a { font-size: 11px; letter-spacing: 1.5px; }
+  .nav .links { gap: 14px; }
+  .wordmark { letter-spacing: 0.12em; }
+  .hero { min-height: 520px; height: 86vh; }
+  .twin { width: 48px; height: 48px; bottom: 14%; }
+  .twin.l { right: calc(50% + 44px); }
+  .twin.r { left: calc(50% + 44px); }
+  @keyframes sway { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-28px); } }
+  @keyframes sway-mirror { 0%,100% { transform: translateX(0); } 50% { transform: translateX(28px); } }
+  section { padding: 48px 0; }
+  .game { grid-template-columns: 1fr; padding: 24px; text-align: left; }
+  .game img { width: 112px; height: 112px; border-radius: 26px; }
+}
